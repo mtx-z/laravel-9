@@ -15,7 +15,7 @@ class getLastEmailsTest extends TestCase
      */
     public function testGetLastEmails()
     {
-        $response = $this->json('GET', version('v1')->route('email.list', ['api_token' => env('API_KEY', '1234')]));
+        $response = $this->json('GET', version('v1')->route('email.list', ['api_token' => config('api.key')]));
 
         $response->assertStatus(200);
 

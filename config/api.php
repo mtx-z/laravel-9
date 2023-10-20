@@ -18,6 +18,7 @@ return [
     |
     */
 
+    'key' => env('API_KEY', '1234'),
     'standardsTree' => env('API_STANDARDS_TREE', 'x'),
 
     /*

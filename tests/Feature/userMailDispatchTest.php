@@ -29,7 +29,7 @@ class userMailDispatchTest extends TestCase
         ];
 
         // Send a POST request to your API route with the invalid data
-        $response = $this->json('POST', version('v1')->route('email.send', ['user' => $user->id, 'api_token' => env('API_KEY', '1234')]), $invalidData);
+        $response = $this->json('POST', version('v1')->route('email.send', ['user' => $user->id, 'api_token' => config('api.key')]), $invalidData);
         Queue::assertNotPushed(ProcessUserMail::class);
 
         // Check that the response indicates validation errors
@@ -52,7 +52,7 @@ class userMailDispatchTest extends TestCase
         ];
 
         // Send a POST request to your API route with the valid data
-        $response = $this->json('POST', version('v1')->route('email.send', ['user' => $user->id, 'api_token' => env('API_KEY', '1234')]), $validData);
+        $response = $this->json('POST', version('v1')->route('email.send', ['user' => $user->id, 'api_token' => config('api.key')]), $validData);
         Queue::assertPushed(ProcessUserMail::class, count($validData));
 
         // Check that the response indicates success and that the job was dispatched
