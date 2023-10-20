@@ -22,6 +22,6 @@ $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', ['middleware' => 'api', 'limit' => 300, 'expires' => 10, 'namespace' => 'App\Http\Controllers'],
     function ($api) {
-        $api->post('/{user}/send', '\App\Http\Controllers\EmailController@send');
-        $api->get('/list', '\App\Http\Controllers\EmailController@list');
+        $api->post('/{user}/send', ['as' => 'email.send', 'uses' => '\App\Http\Controllers\EmailController@send']);
+        $api->get('/list', ['as' => 'email.list', 'uses' => '\App\Http\Controllers\EmailController@list']);
     });

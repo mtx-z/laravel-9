@@ -3,12 +3,9 @@
 namespace App\Jobs;
 
 use App\Mail\UserMail;
-use App\Utilities\Contracts\ElasticsearchHelperInterface;
-use App\Utilities\Contracts\RedisHelperInterface;
 use App\Utilities\Helpers\ElasticsearchHelper;
 use App\Utilities\Helpers\RedisHelper;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Mail\SentMessage;

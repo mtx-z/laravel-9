@@ -13,6 +13,7 @@ class RedisHelper implements \App\Utilities\Contracts\RedisHelperInterface
      * @param string $messageSubject
      * @param string $toEmailAddress
      * @return void
+     * todo handle many recipients, cc, bcc
      */
     public function storeRecentMessage(Mailable $message, User $from, bool $sent, string $errors = null): mixed
     {

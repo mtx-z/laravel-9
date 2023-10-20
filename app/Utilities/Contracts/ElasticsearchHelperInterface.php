@@ -15,4 +15,12 @@ interface ElasticsearchHelperInterface {
      * @return mixed
      */
     public function storeEmail(Mailable $message, User $from, bool $sent, string $errors = null): mixed;
+
+    /**
+     * @param int $page
+     * @param int $limit
+     * @param $user_id
+     * @return array
+     */
+    public function getLastEmails(int $page = 1, int $limit = 20, $user_id = null): array;
 }

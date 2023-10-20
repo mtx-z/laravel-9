@@ -23,6 +23,7 @@ class ElasticsearchHelper implements \App\Utilities\Contracts\ElasticsearchHelpe
             'body' => [
                 'mail_id' => $message->id,
                 'subject' => $message->subject,
+                'body' => $message->body,
                 'to' => $message->to[0]['address'],
                 'sent' => $sent,
                 'errors' => $errors,
@@ -37,6 +38,13 @@ class ElasticsearchHelper implements \App\Utilities\Contracts\ElasticsearchHelpe
 
     }
 
+    /**
+     * @param int $page
+     * @param int $limit
+     * @param $user_id
+     * @return array
+     * todo filter array parameter, validate auth
+     */
     public function getLastEmails(int $page = 1, int $limit = 20, $user_id = null): array
     {
         $query = [
