@@ -2,7 +2,9 @@
 
 namespace App\Utilities\Contracts;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Mail\Mailable;
 
 interface RedisHelperInterface {
     /**
@@ -13,5 +15,5 @@ interface RedisHelperInterface {
      * @param  string  $toEmailAddress
      * @return void
      */
-    public function storeRecentMessage(mixed $id, string $messageSubject, string $toEmailAddress): void;
+    public function storeRecentMessage(Mailable $message, User $from, bool $sent, string $errors = null): mixed;
 }

@@ -79,7 +79,7 @@ return [
              * @see https://www.elastic.co/guide/en/elasticsearch/client/php-api/2.0/_security.html#_ssl_encryption_2
              */
 
-            'sslVerification' => null,
+            'sslVerification' => false,
 
             /**
              * Logging

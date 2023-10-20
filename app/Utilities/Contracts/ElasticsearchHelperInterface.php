@@ -2,14 +2,17 @@
 
 namespace App\Utilities\Contracts;
 
+use App\Models\User;
+use Illuminate\Mail\Mailable;
+
 interface ElasticsearchHelperInterface {
     /**
-     * Store the email's message body, subject and to address inside elasticsearch.
-     *
-     * @param  string  $messageBody
-     * @param  string  $messageSubject
-     * @param  string  $toEmailAddress
-     * @return mixed - Return the id of the record inserted into Elasticsearch
+     * @param string $messageBody
+     * @param string $messageSubject
+     * @param string $toEmailAddress
+     * @param bool $sent
+     * @param string|null $errors
+     * @return mixed
      */
-    public function storeEmail(string $messageBody, string $messageSubject, string $toEmailAddress): mixed;
+    public function storeEmail(Mailable $message, User $from, bool $sent, string $errors = null): mixed;
 }
